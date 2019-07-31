@@ -5,7 +5,7 @@ export interface Album {
     genre: string;
     price: number;
     currency?: string;
-    isOnSale: boolean;
+    onSale: boolean;
     year: number;
     releaseDate: string;
     recordingLocation: string;
