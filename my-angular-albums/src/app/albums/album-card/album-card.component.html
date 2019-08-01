@@ -35,8 +35,7 @@
       />
       <button
         class="btn btn-primary float-right"
-        (click)="showAlbum()"
-        (mouseover)="showArtist()"
+        [routerLink]="['/albums', album.id]"
       >
         See Details
       </button>

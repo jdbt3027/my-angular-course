@@ -9,6 +9,8 @@ import { Album } from "../album.model";
 export class AlbumCardComponent implements OnInit {
   @Input()
   album: Album;
+
+  @Input()
   newPrice: number;
 
   @Output()
@@ -16,18 +18,14 @@ export class AlbumCardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.album.onSale) {
+      // Apply 10% discount
+      this.newPrice = this.album.price - this.album.price * 0.1;
+    }
+  }
 
   showAlbum() {
     this.albumClicked.emit(this.album);
-  }
-
-  showArtist() {
-    console.log("Artist selected: " + this.album.artist);
-
-    if (this.album.onSale) {
-      // Apply 10% discount
-      this.newPrice = this.album.price - (this.album.price * .10);
-      }
   }
 }
