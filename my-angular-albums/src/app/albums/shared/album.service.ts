@@ -19,4 +19,8 @@ export class AlbumService {
   getAlbumById(id: number): Observable<Album> {
     return this.http.get<Album>(this.url + "/" + id);
   }
+
+  addAlbum(album: Album): Observable<Album> {
+    return this.http.post<Album>(this.url, album);
+  }
 }
